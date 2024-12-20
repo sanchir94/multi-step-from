@@ -36,9 +36,15 @@ export default function StepThree({ onNext, onBack }) {
         onChange={handleDrop}
       />
       <h2>
-        Profile imega <span className="text-red-500">*</span>
+        Profile image <span className="text-red-500">*</span>
       </h2>
       <label>
+        <input
+          type="file"
+          className=" hidden w-[416px] h-[180px] bg-[#7F7F80] rounded-[8px]"
+          value={formData.image}
+          onChange={handleDrop}
+        />
         {imageDrop ? (
           <img src={imageDrop} className="w-[416px] h-[180px] rounded-[8px] " />
         ) : (
