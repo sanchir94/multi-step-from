@@ -42,7 +42,11 @@ export default function StepTwo({ onNext, onBack }) {
       onNext(formData);
     }
   };
-
+  const handlePrevious = () => {
+    if (validate()) {
+      onBack(formData);
+    }
+  };
   return (
     <div className="w-[480px] h-[655px] bg-white p-6 rounded-[8px] shadow-lg text-black">
       <img src="Logo3.png" className="w-[60px] h-[60px]" />
@@ -114,13 +118,13 @@ export default function StepTwo({ onNext, onBack }) {
       </div>
       <div className="flex">
         <button
-          onClick={onBack}
+          onClick={handlePrevious}
           className="bg-slate-600 w-[128px] h-[44px]  py-2 rounded disabled:opacity-50 text-black "
         >
           {"<back"}
         </button>
         <button
-          onClick={onNext}
+          onClick={handleNext}
           className="w-[280px] h-[44px] bg-black text-white py-2 rounded disabled:opacity-50"
         >
           {"Submit 2/3 >"}
