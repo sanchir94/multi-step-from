@@ -21,10 +21,12 @@ export default function StepTwo({ onNext, onBack }) {
     }
 
     if (!formData.Password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      newErrors.Password = "Password must include letters and numbers.";
     }
 
-    if (formData.ConfirmPassword !== formData.Password) {
-      newErrors.Password = "Password must include letters and numbers.";
+    if (
+      !formData.ConfirmPassword.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
+    ) {
       newErrors.ConfirmPassword = "Passwords do not match. Please try again.";
     }
 
@@ -43,9 +45,7 @@ export default function StepTwo({ onNext, onBack }) {
     }
   };
   const handlePrevious = () => {
-    if (validate()) {
-      onBack(formData);
-    }
+    onBack(formData);
   };
   return (
     <div className="w-[480px] h-[655px] bg-white p-6 rounded-[8px] shadow-lg text-black">
@@ -89,7 +89,7 @@ export default function StepTwo({ onNext, onBack }) {
           Password <span className="text-red-500">*</span>
         </label>
         <input
-          type="text"
+          type="Password"
           name="Password"
           value={formData.Password}
           onChange={handleChange}
@@ -105,7 +105,7 @@ export default function StepTwo({ onNext, onBack }) {
           Confirm password <span className="text-red-500">*</span>
         </label>
         <input
-          type="text"
+          type="Password"
           name="ConfirmPassword"
           value={formData.ConfirmPassword}
           onChange={handleChange}

@@ -14,8 +14,8 @@ export default function StepThree({ onNext, onBack }) {
       const previewImage = URL.createObjectURL(file);
 
       console.log(typeof previewImage);
-      setImageDrop(previewImage);
       setFormData(previewImage);
+      setImageDrop(previewImage);
     }
   };
 
@@ -32,19 +32,18 @@ export default function StepThree({ onNext, onBack }) {
       <input
         type="date"
         className="w-[416px] h-[44px] border-[#CBD5E1] border-solid border-[1px] rounded-[8px]"
-        value={formData.data}
         onChange={handleDrop}
       />
       <h2>
         Profile image <span className="text-red-500">*</span>
       </h2>
       <label>
-        <input
+        {/* <input
           type="file"
           className=" hidden w-[416px] h-[180px] bg-[#7F7F80] rounded-[8px]"
           value={formData.image}
           onChange={handleDrop}
-        />
+        /> */}
         {imageDrop ? (
           <img src={imageDrop} className="w-[416px] h-[180px] rounded-[8px] " />
         ) : (

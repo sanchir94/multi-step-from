@@ -9,12 +9,12 @@ export default function Page() {
   const [userData, setUserData] = useState({});
 
   const handleNext = (data) => {
-    setUserData({ ...userData, ...data });
+    setUserData({ ...userData });
     setStep(step + 1);
   };
 
   const handlePrevious = () => {
-    setUserData({ ...userData, ...data });
+    setUserData({ ...userData });
     setStep(step - 1);
   };
 
